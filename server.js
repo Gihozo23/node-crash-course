@@ -3,7 +3,7 @@ const fs = require("fs")
 const server = http.createServer((request, response) => {
     console.log("request made") 
     console.log(request.url, request.method);
-    
+
     //BASIC ROUTING
     response.setHeader("Content-Type", "text/html")
     let path = "./views/";
@@ -14,6 +14,11 @@ const server = http.createServer((request, response) => {
         case "/about":
             path += "about.html";
             break;
+        //redirecting from a previous changed page to the new page
+        case "/about-me":
+            response.statusCode = 301;
+            response.setHeader("Location", "/about")
+            response.end();
         default:
             path += "404.html";
 
