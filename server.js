@@ -1,13 +1,15 @@
 const http = require("http");
-const fs = require("fs")
+const fs = require("fs");
+const _ = require("lodash");
 const server = http.createServer((request, response) => {
     console.log("request made") 
     console.log(request.url, request.method);
 
     //BASIC ROUTING
     response.setHeader("Content-Type", "text/html")
-    let path = "./views/";
+    let path = "./views/"; 
     switch (request.url) {
+        
         case "/":
             path += "index.html";
             break;
