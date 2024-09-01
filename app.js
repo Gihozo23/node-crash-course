@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+//register view engine
 //Listening for requests
 
 app.listen(3000);
@@ -20,4 +21,10 @@ app.get("/about", (request, response) => {
 
 app.get("/about-us", (request, response) => {
   response.redirect("/about");
+});
+
+//404
+//the use method creates middlewares and fire at the middleware function , since it doesn't take a path it will fire for every url
+app.use((request, response) => {
+  response.status(404).sendFile("./views/404.html");
 });
