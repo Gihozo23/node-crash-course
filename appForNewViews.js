@@ -12,7 +12,7 @@ app.get("/about", (request, response) => {
 app.get("/about-us", (request, response) => {
   response.redirect("about");
 });
-app.get("/blogs/create", (request, response) => response.render("create");)
+app.get("/blogs/create", (request, response) => response.render("create"));
 app.use((request, response) => {
   response.status(404).render("404");
 });
