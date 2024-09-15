@@ -1,10 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Server trial</title>
-  </head>
+  <%- include("./partials/head.ejs") %>
   <body>
     <h1>Welcome to the server trial</h1>
     <img src="/carLogo.svg" alt="" />
@@ -17,8 +12,11 @@
     <div>
       <h2 class="blogs">all bloqss</h2>
       <% if(blogs.length > 0) {%> <% blogs.forEach(element => { %>
-      <h1><%= element %></h1>
-
+      <a href="/blogs/<%= element._id %>">
+        <h1><%= element.title %></h1>
+        <h3><%= element.snippet %></h3>
+        <span><%= element.body %></span>
+      </a>
       <% }); %> <% } else{ %>
       <p>No bloqs</p>
       <% } %>
